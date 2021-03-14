@@ -205,6 +205,7 @@ body {
   border-radius: 20px;
   border: none;
   color: rgba(92, 91, 91,.7);
+  background-color: rgba(244,244,244,255);
   font-weight: 700;
   font-size: .73em;
 }
