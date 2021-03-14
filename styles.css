@@ -58,10 +58,6 @@ body {
   z-index: 2;
 }
 
-.menu-button:hover {
-  cursor: pointer;
-}
-
 .menu-button:focus {
   outline: none;
 }
@@ -189,6 +185,10 @@ body {
   font-size: .73em;
 }
 
+.title-button:focus {
+  outline: none;
+}
+
 .bookmark-container {
   position: relative;
 }
@@ -208,6 +208,10 @@ body {
   background-color: rgba(244,244,244,255);
   font-weight: 700;
   font-size: .73em;
+}
+
+.bookmark-button:focus {
+  outline: none;
 }
 
 
@@ -246,10 +250,22 @@ body {
 
 /* FOR HOVER STATES */
 @media only screen and (min-width: 500px) {
+  .menu-button:hover {
+    cursor: pointer;
+  }
+
   .title-button:hover {
     cursor: pointer;
     background-color: hsl(176, 72%, 28%);
     z-index: 1;
+  }
+
+  .bookmark-button:hover {
+    cursor: pointer;
+  }
+
+  .bookmark-icon:hover {
+    cursor: pointer;
   }
 }
 
