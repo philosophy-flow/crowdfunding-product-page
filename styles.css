@@ -217,6 +217,20 @@ body {
   transform: translateX(100%);
 }
 
+
+/* ACTIVE BOOKMARK */
+.bookmark-icon.active circle {
+  fill: hsl(176, 72%, 28%);
+}
+
+.bookmark-icon.active path {
+  fill: white;
+}
+
+.bookmark-button.active {
+  color:hsl(176, 72%, 28%)
+}
+
 /* Progress SECTION */
 .progress {
   height: 175px;
