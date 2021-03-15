@@ -234,10 +234,6 @@ body {
 
 
 /* Progress SECTION */
-.progress {
-  border: 1px solid green;
-}
-
 .stats {
   display: flex;
   justify-content: space-between;
