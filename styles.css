@@ -116,7 +116,7 @@ body {
 
 /* MAIN CONTENT */
 .main-container {
-  width: 550px;
+  width: 575px;
   margin: 0 auto;
 
   position: relative;
@@ -130,7 +130,7 @@ body {
   background-color: white;
   border-radius: 5px;
   margin: 10px 0;
-  padding: 40px;
+  padding: 33px;
 }
 
 
@@ -275,7 +275,21 @@ body {
 }
 
 .progress-bar {
+  width: 100%;
+  height: 12px;
+  margin-top: 20px;
+  background-color: rgba(119, 119, 119,0.1);
+  border-radius: 100px;
 
+  position: relative;
+  overflow: hidden;
+}
+
+.loader {
+  position: absolute;
+  height: 12px;
+  background-color: hsl(176, 50%, 47%);
+  width: 89.914%; /* 89,914 / 100,000 */
 }
 
 
@@ -309,6 +323,10 @@ body {
 @media only screen and (max-width: 600px) {
   .main-container {
     width: 450px;
+  }
+
+  .content-box {
+    padding: 15px;
   }
 }
 
@@ -407,7 +425,6 @@ body {
     display: block;
     border-top: 1px solid rgba(119, 119, 119,0.3);
     width: 25%;
-
   }
 
   .stats-section h2 {
