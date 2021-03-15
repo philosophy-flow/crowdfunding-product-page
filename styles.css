@@ -385,7 +385,52 @@ body {
 
 
 
+/* SELCTION MODAL */
+.selection-modal {
+  width: 100%;
+  height: 100%;
 
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgba(122, 122, 122, 0.4);
+  z-index: 1;
+}
+
+.main-container {
+  width: 575px;
+  margin: 0 auto;
+
+  position: relative;
+  top: -75px;
+
+  display: flex;
+  flex-direction: column;
+}
+
+.content-box {
+  background-color: white;
+  border-radius: 5px;
+  margin: 10px 0;
+  padding: 33px;
+}
+
+
+.selection-form {
+  width: 575px;
+  position: absolute;
+  left: 50%;
+  top: 80px;
+  transform: translate(-50%);
+  background-color: white;
+}
+
+.reward-box {
+  height: 100px;
+
+  margin: 0 auto;
+  border: 1px solid red;
+}
 
 
 @media only screen and (min-width: 1400px) {
