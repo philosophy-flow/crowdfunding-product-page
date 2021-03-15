@@ -146,10 +146,10 @@ body {
 }
 
 .title-icon-container {
-  width: 40px;
+  width: 50px;
 
   position: absolute;
-  top: -20px;
+  top: -25px;
 }
 
 .title-icon-container img {
@@ -157,17 +157,18 @@ body {
 }
 
 .title-text h1 {
-  font-size: 1.25em;
+  font-size: 1.5em;
   padding-bottom: 10px;
 }
 
 .title-text p {
-  font-size: .75em;
+  font-size: .85em;
   color: rgba(119, 119, 119,0.7);
 }
 
 .title-button-container {
   width: 100%;
+  height: 56px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -175,14 +176,14 @@ body {
 }
 
 .title-button {
-  height: 50%;
-  padding: 12px 25px;
-  border-radius: 20px;
+  height: 100%;
+  padding: 5px 40px;
+  border-radius: 30px;
   border: none;
   background-color: hsl(176, 50%, 47%);
   color: white;
   font-weight: 700;
-  font-size: .73em;
+  font-size: .88em;
 }
 
 .title-button:focus {
@@ -191,32 +192,30 @@ body {
 
 .bookmark-container {
   position: relative;
-}
-
-.bookmark-container img {
-  height: 37px;
-  position: absolute;
-  right: 100%;
-  transform: translateX(100%);
+  height: 100%;
 }
 
 .bookmark-button {
-  height: 50%;
-  padding: 12px 15px;
-  padding-left: 54px;
-  border-radius: 20px;
+  height: 100%;
+  padding: 5px 17px;
+  padding-left: 73px;
+  border-radius: 30px;
   border: none;
   color: rgba(92, 91, 91,.7);
   background-color: rgba(244,244,244,255);
   font-weight: 700;
-  font-size: .73em;
+  font-size: .88em;
 }
 
 .bookmark-button:focus {
   outline: none;
 }
 
-
+.bookmark-icon {
+  position: absolute;
+  right: 100%;
+  transform: translateX(100%);
+}
 
 /* Progress SECTION */
 .progress {
@@ -306,27 +305,15 @@ body {
   }
 
   .content-box {
-    padding: 20px;
+    padding: 35px;
   }
 
   .title-text h1 {
     padding: 0 40px 10px 40px;
   }
 
-  .title-button-container {
-    height: 50px;
-  }
-
-  .title-button {
-    height: 100%;
-    padding: 12px 46px;
-    border-radius: 30px;
-    font-size: 1em;
-  }
-
-  .bookmark-container img {
+  .bookmark-icon {
     position: relative;
-    height: 100%;
   }
 
   .bookmark-button {
@@ -336,7 +323,7 @@ body {
 
 @media only screen and (max-width: 350px) {
   .title-button {
-    padding: 12px 38px;
+    padding: 10px 20px;
     font-size: .8em;
   }
 }
