@@ -196,6 +196,8 @@ body {
 .bookmark-container img {
   height: 37px;
   position: absolute;
+  right: 100%;
+  transform: translateX(100%);
 }
 
 .bookmark-button {
@@ -213,10 +215,6 @@ body {
 .bookmark-button:focus {
   outline: none;
 }
-
-
-
-
 
 
 
@@ -264,8 +262,9 @@ body {
     cursor: pointer;
   }
 
-  .bookmark-icon:hover {
+  .bookmark-icon:hover, .bookmark-button:hover + .bookmark-icon {
     cursor: pointer;
+    opacity: 0.6;
   }
 }
 
