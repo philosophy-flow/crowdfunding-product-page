@@ -309,10 +309,6 @@ body {
 
 
 /* ABOUT SECTION */
-.about {
-  border: 1px solid purple;
-}
-
 .about h3 {
   font-size: 1em;
 }
@@ -334,7 +330,7 @@ body {
   margin: 10px 0;
   padding: 15px;
 
-  border: 1px solid red;
+  border: 1px solid rgba(119, 119, 119,0.4);
   border-radius: 5px;
 }
 
