@@ -233,7 +233,7 @@ body {
 
 
 
-/* Progress SECTION */
+/* PROGRESS SECTION */
 .stats {
   display: flex;
   justify-content: space-between;
@@ -290,15 +290,80 @@ body {
 
 
 
-
-
-
 /* ABOUT SECTION */
-
 .about {
-  height: 600px;
   border: 1px solid purple;
 }
+
+.about h3 {
+  font-size: 1em;
+}
+
+.about p {
+  font-size: .82em;
+  color: rgba(119, 119, 119,0.7);
+  margin: 25px 0;
+}
+
+.pledge-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.pledge {
+  width: 100%;
+  margin: 10px 0;
+  padding: 15px;
+
+  border: 1px solid red;
+  border-radius: 5px;
+}
+
+.pledge-req {
+  float: right;
+  color: hsl(176, 50%, 47%);
+  font-size: .85em;
+}
+
+.pledge-bottom {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
+.left-text {
+  font-size: .7rem;
+  color: rgba(119, 119, 119,0.7);
+  font-weight: normal;
+
+  position: relative;
+  bottom: 5px;
+}
+
+.reward-button {
+  height: 100%;
+  padding: 10px 20px;
+  border-radius: 30px;
+  border: none;
+  background-color: hsl(176, 50%, 47%);
+  color: white;
+  font-weight: 700;
+  font-size: .75em;
+}
+
+.reward-button:focus {
+  outline: none;
+}
+
+/* Sold out */
+.pledge.sold-out {
+  opacity: 0.4;
+}
+
+.reward-button.sold-out {
+  background-color: grey;
+}
+
 
 
 
@@ -346,6 +411,16 @@ body {
   .bookmark-icon:hover, .bookmark-button:hover + .bookmark-icon {
     cursor: pointer;
     opacity: 0.6;
+  }
+
+  .reward-button:hover {
+    cursor: pointer;
+    background-color: hsl(176, 72%, 28%);
+  }
+
+  .reward-button.sold-out:hover {
+    cursor: inherit;
+    background-color: grey;
   }
 }
 
