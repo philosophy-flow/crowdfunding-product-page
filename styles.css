@@ -247,7 +247,7 @@ body {
 
 @media only screen and (max-width: 600px) {
   .main-container {
-    width: 400px;
+    width: 450px;
   }
 }
 
@@ -283,6 +283,14 @@ body {
     background-image: url("images/image-hero-mobile.jpg");
     background-position: center;
     background-size: cover;
+  }
+
+  .logo {
+    font-size: 2em;
+  }
+
+  .nav-bar {
+    padding: 15px 20px;
   }
 
   .nav-list {
