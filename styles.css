@@ -178,7 +178,7 @@ body {
 }
 
 .title-text p {
-  font-size: .85em;
+  font-size: .9rem;
   color: rgba(119, 119, 119,0.7);
 }
 
@@ -251,8 +251,8 @@ body {
 
 /* PROGRESS SECTION */
 
-.about p {
-  font-size: .85em;
+.progress p {
+  font-size: .9rem;
   color: rgba(119, 119, 119,0.7);
 }
 
@@ -318,7 +318,8 @@ body {
 }
 
 .about p {
-  font-size: .82em;
+  font-size: .9rem;
+  line-height: 1.5;
   color: rgba(119, 119, 119,0.7);
   margin: 25px 0;
 }
