@@ -17,7 +17,7 @@
 }
 
 html {
-    -webkit-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
@@ -393,14 +393,16 @@ body {
 }
 
 .selection-form {
+  max-height: 100%;
   width: 575px;
   padding: 33px;
-  position: absolute;
+  position: relative;
   left: 50%;
-  top: 80px;
-  transform: translate(-50%);
+  top: 50%;
+  transform: translate(-50%, -50%);
   background-color: white;
   border-radius: 5px;
+  overflow: auto;
 }
 
 .pledge-modal-close-btn {
