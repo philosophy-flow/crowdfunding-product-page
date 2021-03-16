@@ -101,7 +101,7 @@
             You get an ergonomic stand made of natural bamboo. You've helped us launch our promotional campaign, and you’ll be added to a special Backer member list.
           </p>
           <div class="pledge-bottom">
-            <h2 id="bamboo-remaining">101 <span class="left-text">left</span></h2>
+            <h2 class="bamboo-remaining">101 <span class="left-text">left</span></h2>
             <button class="reward-button bamboo-button">Select Reward</button>
           </div>
         </div>
@@ -111,7 +111,7 @@
             You get a Black Special Edition computer stand and a personal thank you. You’ll be added to our Backer member list. Shipping is included.
           </p>
           <div class="pledge-bottom">
-            <h2 id="black-remaining">64 <span class="left-text">left</span></h2>
+            <h2 class="black-remaining">64 <span class="left-text">left</span></h2>
             <button class="reward-button black-button">Select Reward</button>
           </div>
         </div>
@@ -121,7 +121,7 @@
             You get two Special Edition Mahogany stands, a Backer T-Shirt, and a personal thank you. You’ll be added to our Backer member list. Shipping is included.
           </p>
           <div class="pledge-bottom">
-            <h2 id="mahogany-remaining">0 <span class="left-text">left</span></h2>
+            <h2 class="mahogany-remaining">0 <span class="left-text">left</span></h2>
             <button class="reward-button mahogany-button sold-out">Out of stock</button>
           </div>
         </div>
@@ -131,31 +131,51 @@
     <div class="selection-modal">
       <form class="selection-form">
         <h2>Back this project</h2>
-        <p>Want to support us in bringing Mastercraft Bamboo Monitor Riser out in the world?</p>
+        <p class="selection-sub-text">Want to support us in bringing Mastercraft Bamboo Monitor Riser out in the world?</p>
         <div class="reward-box">
-          <input type="radio" id="no-reward" name="reward-type" value="no-reward">
-          <label for="no-reward">Pledge with no reward</label>
+          <label class="radio">
+            <span class="radio__input">
+              <input type="radio" name="reward-type" value="no-reward">
+              <span class="radio__control"></span>
+            </span>
+            <span class="radio__label">Pledge with no reward</span>
+          </label>
           <p>
             Choose to support us without a reward if you simply believe in our project. As a backer, you will be signed up to receive product updates via email.
           </p>
         </div>
         <div class="reward-box">
-          <input type="radio" id="bamboo-reward" name="reward-type" value="bamboo-reward">
-          <label for="bamboo-reward">Bamboo Stand <span class="pledge-amount">Pledge $25 or more</span></label>
+          <label class="radio">
+            <span class="radio__input">
+              <input type="radio" name="reward-type" value="bamboo-reward">
+              <span class="radio__control"></span>
+            </span>
+            <span class="radio__label">Bamboo Stand <span class="pledge-amount">Pledge $25 or more</span><span class="bamboo-remaining amount-remaining">101 <span class="left-text">left</span></span></span>
+          </label>
           <p>
             You get an ergonomic stand made of natural bamboo. You've helped us launch our promotional campaign, and you’ll be added to a special Backer member list.
           </p>
         </div>
         <div class="reward-box">
-          <input type="radio" id="black-reward" name="reward-type" value="black-reward">
-          <label for="black-reward">Black Edition Stand <span class="pledge-amount">Pledge $75 or more</span></label>
+          <label class="radio">
+            <span class="radio__input">
+              <input type="radio" name="reward-type" value="black-reward">
+              <span class="radio__control"></span>
+            </span>
+            <span class="radio__label">Black Edition Stand <span class="pledge-amount">Pledge $75 or more</span><span class="black-remaining amount-remaining">64 <span class="left-text">left</span></span></span></span>
+          </label>
           <p>
             You get a Black Special Edition computer stand and a personal thank you. You’ll be added to our Backer member list. Shipping is included.
           </p>
         </div>
         <div class="reward-box">
-          <input type="radio" id="mahogany-reward" name="reward-type" value="mahogany-reward">
-          <label for="mahogany-reward">Mahogany Special Edition <span class="pledge-amount">Pledge $200 or more</span></label>
+          <label class="radio">
+            <span class="radio__input">
+              <input type="radio" name="reward-type" value="mahogany-reward">
+              <span class="radio__control"></span>
+            </span>
+            <span class="radio__label">Mahogany Special Edition <span class="pledge-amount">Pledge $200 or more</span><span class="mahogany-remaining amount-remaining">0 <span class="left-text">left</span></span></span></span>
+          </label>
           <p>
             You get two Special Edition Mahogany stands, a Backer T-Shirt, and a personal thank you. You’ll be added to our Backer member list. Shipping is included.
           </p>

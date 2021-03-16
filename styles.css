@@ -404,13 +404,101 @@ body {
   border-radius: 5px;
 }
 
-.reward-box {
-  height: 100px;
-  margin: 10px auto;
-  border-radius: 5px;
-  border: 1px solid red;
+.selection-form h2 {
 
 }
+
+.selection-sub-text {
+  color: rgba(119, 119, 119,0.9);
+  padding: 15px 0;
+  font-size: .9rem;
+}
+
+.reward-box {
+  margin: 10px auto;
+  border-radius: 5px;
+  border: 1px solid rgba(119, 119, 119,0.4);
+  padding: 20px;
+}
+
+.reward-box p {
+  font-size: .9rem;
+  color: rgba(119, 119, 119,0.9);
+  margin: 10px 0 10px 39px;
+}
+
+.pledge-amount {
+  font-size: .9em;
+  color: hsl(176, 50%, 47%);
+  padding-left: 10px;
+}
+
+.reward-box .amount-remaining {
+  float: right;
+}
+
+.amount-remaining .left-text {
+  position: static;
+  font-size: inherit;
+  font-size: .9em;
+  font-weight: 300;
+  padding-left: 3px;
+}
+
+
+
+
+/* CUSTOM RADIO BUTTONS FOR MODAL */
+.radio {
+  display: grid;
+  grid-template-columns: min-content auto;
+  grid-gap: 15px;
+}
+
+.radio__input {
+  display: flex;
+}
+
+.radio__input input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.radio__control {
+  display: block;
+  width: 1.5em;
+  height: 1.5em;
+  border-radius: 50%;
+  border: 0.1em solid rgba(122, 122, 122, 0.5);
+  transform: translateY(-0.05em);
+
+  display: grid;
+  place-items: center;
+}
+
+.radio__label {
+  font-size: .93em;
+  line-height: 1;
+  font-weight: bold;
+}
+
+input + .radio__control::before {
+  content: "";
+  width: .75em;
+  height: .75em;
+  background-color: hsl(176, 50%, 47%);
+  border-radius: 50%;
+  transition: 180ms transform ease-in-out;
+  transform: scale(0);
+}
+
+input:checked + .radio__control::before {
+  transform: scale(1);
+}
+
+
+
 
 
 @media only screen and (min-width: 1400px) {
