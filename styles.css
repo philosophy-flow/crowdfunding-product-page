@@ -393,39 +393,23 @@ body {
   z-index: 1;
 }
 
-.main-container {
-  width: 575px;
-  margin: 0 auto;
-
-  position: relative;
-  top: -75px;
-
-  display: flex;
-  flex-direction: column;
-}
-
-.content-box {
-  background-color: white;
-  border-radius: 5px;
-  margin: 10px 0;
-  padding: 33px;
-}
-
-
 .selection-form {
   width: 575px;
+  padding: 33px;
   position: absolute;
   left: 50%;
   top: 80px;
   transform: translate(-50%);
   background-color: white;
+  border-radius: 5px;
 }
 
 .reward-box {
   height: 100px;
-
-  margin: 0 auto;
+  margin: 10px auto;
+  border-radius: 5px;
   border: 1px solid red;
+
 }
 
 
