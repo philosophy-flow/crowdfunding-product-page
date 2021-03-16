@@ -389,7 +389,7 @@ body {
   top: 0;
   left: 0;
   background-color: rgba(122, 122, 122, 0.4);
-  z-index: 1;
+  z-index: 2;
 }
 
 .selection-form {
@@ -612,6 +612,11 @@ input:checked + .radio__control::before {
   .content-box {
     padding: 15px;
   }
+
+  .selection-form {
+    width: 490px;
+    padding: 20px;
+  }
 }
 
 
@@ -743,6 +748,31 @@ input:checked + .radio__control::before {
   .reward-button {
     margin-top: 25px;
     width: 60%;
+  }
+
+
+
+  .selection-form {
+    width: 90%;
+  }
+
+  .donation-form {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .donation-form label {
+    font-size: .9rem;
+    color: rgba(119, 119, 119,0.9);
+    margin-bottom: 10px;
+  }
+
+  .donation-amount-container {
+    height: 30px;
+    margin-left: 0;
+    margin-right: 0px;
+    position: relative;
+    margin-bottom: 10px;
   }
 }
 
