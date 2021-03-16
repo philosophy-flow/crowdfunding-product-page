@@ -466,6 +466,14 @@ body {
 }
 
 .donation-container {
+  display: none;
+}
+
+.reward-box.active .donation-container {
+  display: block;
+}
+
+.donation-container {
   margin-top: 30px;
 }
 
@@ -529,6 +537,7 @@ input[type=number] {
   font-weight: 700;
   font-size: .75em;
 }
+
 
 
 /* CUSTOM RADIO BUTTONS FOR MODAL */
