@@ -455,7 +455,10 @@ body {
   padding-left: 3px;
 }
 
-
+/* ACTIVE STATE FOR REWARD BOX */
+.reward-box.active {
+  border: 1px solid hsl(176, 50%, 47%);
+}
 
 
 /* CUSTOM RADIO BUTTONS FOR MODAL */
@@ -506,7 +509,6 @@ input + .radio__control::before {
 input:checked + .radio__control::before {
   transform: scale(1);
 }
-
 
 
 
