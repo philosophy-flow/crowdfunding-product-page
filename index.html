@@ -68,12 +68,12 @@
     <div class="content-box progress">
       <div class="stats">
         <div class="stats-section">
-          <h2>$89,914</h2>
+          <h2>$<span id="amount-raised">89,914</span></h2>
           <p>of $100,000 backed</p>
         </div>
         <div class="mobile-border"></div>
         <div class="stats-section">
-          <h2>5,007</h2>
+          <h2 id="total-backers">5,007</h2>
           <p>total backers</p>
         </div>
         <div class="mobile-border"></div>
@@ -154,7 +154,7 @@
               <i class="fas fa-dollar-sign"></i>
               <input id="no-reward-amount" type="number">
             </div>
-            <button>Continue</button>
+            <button id="no-reward-trigger">Continue</button>
           </div>
         </div>
       </div>
@@ -178,7 +178,7 @@
               <i class="fas fa-dollar-sign"></i>
               <input id="bamboo-reward-amount" type="number" min="25">
             </div>
-            <button>Continue</button>
+            <button id="bamboo-reward-trigger">Continue</button>
           </div>
         </div>
       </div>
@@ -202,7 +202,7 @@
               <i class="fas fa-dollar-sign"></i>
               <input id="black-reward-amount" type="number" min="75">
             </div>
-            <button>Continue</button>
+            <button id="black-reward-trigger">Continue</button>
           </div>
         </div>
       </div>

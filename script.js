@@ -82,3 +82,47 @@ rewardInputArr.forEach(input => {
     newActiveBox.classList.add('active');
   });
 });
+
+// Donation Logic
+const donateNoReward = document.getElementById('no-reward-trigger');
+const donateBambooReward = document.getElementById('bamboo-reward-trigger');
+const donateBlackReward = document.getElementById('black-reward-trigger');
+
+let amountRaised = parseInt(document.getElementById('amount-raised').innerHTML.replace(',', ''));
+const totalBackers = document.getElementById('total-backers');
+
+
+
+donateNoReward.addEventListener('click', (e) => {
+  e.preventDefault();
+
+  const donationAmount = parseInt(document.getElementById('no-reward-amount').value);
+  document.getElementById('no-reward-amount').value = null;
+
+  // Handle amount amount raised
+  amountRaised += donationAmount;
+  document.getElementById('amount-raised').innerHTML = amountRaised.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+  // Handle total backers
+});
+
+donateBambooReward.addEventListener('click', (e) => {
+  e.preventDefault();
+
+  const donationAmount = parseInt(document.getElementById('bamboo-reward-amount').value);
+  document.getElementById('bamboo-reward-amount').value = null;
+
+  // Handle amount amount raised
+  amountRaised += donationAmount;
+  document.getElementById('amount-raised').innerHTML = amountRaised.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+});
+
+donateBlackReward.addEventListener('click', (e) => {
+  e.preventDefault();
+  const donationAmount = parseInt(document.getElementById('black-reward-amount').value);
+  document.getElementById('black-reward-amount').value = null;
+
+  // Handle amount amount raised
+  amountRaised += donationAmount;
+  document.getElementById('amount-raised').innerHTML = amountRaised.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+});

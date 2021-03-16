@@ -517,16 +517,6 @@ body {
   outline: none;
 }
 
-/* REMOVE INCREMENT FROM NUM INPUT */
-input::-webkit-outer-spin-button,
-input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-input[type=number] {
-  -moz-appearance: textfield;
-}
-
 .donation-form button {
   height: 100%;
   padding: 10px 20px;
@@ -538,6 +528,19 @@ input[type=number] {
   font-size: .75em;
 }
 
+.donation-form button:focus {
+  outline: none;
+}
+
+/* REMOVE INCREMENT FROM NUM INPUT */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type=number] {
+  -moz-appearance: textfield;
+}
 
 
 /* CUSTOM RADIO BUTTONS FOR MODAL */
@@ -653,6 +656,11 @@ input:checked + .radio__control::before {
 
   .pledge-modal-close-btn:hover {
     cursor: pointer;
+  }
+
+  .donation-form button:hover {
+    cursor: pointer;
+    background-color: hsl(176, 72%, 28%);
   }
 }
 
