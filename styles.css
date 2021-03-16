@@ -751,9 +751,24 @@ input:checked + .radio__control::before {
   }
 
 
-
   .selection-form {
     width: 90%;
+  }
+
+
+  .reward-box .amount-remaining {
+    float: none;
+    display: block;
+  }
+
+  .pledge-amount {
+    display: block;
+    position: static;
+    font-size: inherit;
+    font-size: .9em;
+    font-weight: 300;
+    padding-left: 0px;
+    padding: 10px 0;
   }
 
   .donation-form {
