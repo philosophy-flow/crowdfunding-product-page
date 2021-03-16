@@ -28,3 +28,23 @@ bookmarkContainer.addEventListener('click', e => {
     bookmarkButton.innerHTML = 'Bookmark';
   }
 });
+
+
+// Reward modal
+const rewardModal = document.querySelector('.selection-modal');
+const bambooButton = document.querySelector('.bamboo-button');
+const blackButton = document.querySelector('.black-button');
+const closeModal = document.querySelector('.pledge-modal-close-btn');
+
+bambooButton.addEventListener('click', () => {
+  rewardModal.classList.remove('hidden');
+});
+
+blackButton.addEventListener('click', () => {
+  rewardModal.classList.remove('hidden');
+});
+
+closeModal.addEventListener('click', e => {
+  e.preventDefault();
+  rewardModal.classList.add('hidden');
+});
