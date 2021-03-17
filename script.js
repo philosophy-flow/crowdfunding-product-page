@@ -184,3 +184,9 @@ rewardFormArr.forEach(reward => {
 
 
 // ------------------------------------------------------------------------
+
+// const bambooRemaining = document.getElementById('bamboo-remaining');
+// const bambooRemainingModal = document.getElementById('bamboo-remaining-modal');
+//
+// console.log(bambooRemaining.innerHTML);
+// console.log(bambooRemainingModal);
