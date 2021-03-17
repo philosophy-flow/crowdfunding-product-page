@@ -118,7 +118,7 @@ radioArr.forEach((radio, index) => {
 
 
 
-////////////////////////////////
+// ------------------------------------------------------------------------
 
 
 
@@ -161,6 +161,7 @@ function handleAmountRaised(donationAmount) {
   handleProgressBar(amountRaisedVal);
 }
 
+// Decrement stands remaining by 1 for each donation
 function handleStandsRemaining(standType) {
   const initialAmount = parseInt(standType.innerHTML);
   const newAmount = initialAmount - 1;
@@ -173,7 +174,8 @@ rewardFormArr.forEach(reward => {
   reward.addEventListener('submit', e => {
     e.preventDefault();
     closeSelectionModal();
-    alert('Thanks for the donation!');
+    const thankYouModal = document.getElementById('thank-you-modal');
+    thankYouModal.classList.remove('hidden');
 
     const rewardInput = e.target.children[1].children[1];
     const donationVal = parseInt(rewardInput.value);
@@ -181,7 +183,8 @@ rewardFormArr.forEach(reward => {
     handleTotalBackers();
     handleAmountRaised(donationVal);
 
-    // Decriment amount remaining
+
+    // Decrement amount remaining
     const bambooRemaining = document.getElementById('bamboo-remaining');
     const blackRemaining = document.getElementById('black-remaining');
 
@@ -197,7 +200,9 @@ rewardFormArr.forEach(reward => {
   });
 });
 
-
-
-
-// ------------------------------------------------------------------------
+// Event listener for thank you modal button
+const closeThankYou = document.getElementById('close-thank-you');
+closeThankYou.addEventListener('click', () => {
+  const thankYouModal = document.getElementById('thank-you-modal');
+  thankYouModal.classList.add('hidden');
+});
