@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1 maximum-scale=1">
   <title>Crowdfunding product page</title>
 
   <!-- FONT AWESOME -->
@@ -86,7 +86,7 @@
     </div>
 
 
-    <div class="content-box about">
+    <div id="selection-box" class="content-box about">
       <h3>About this project</h3>
       <p>
         The Mastercraft Bamboo Monitor Riser is a sturdy and stylish platform that elevates your screen to a more comfortable viewing height. Placing your monitor at eye level has the potential to improve your posture and make you more comfortable while at work, helping you stay focused on the task at hand.
@@ -156,9 +156,9 @@
             <label for="no-reward-amount">Enter your Pledge</label>
             <div class="donation-amount-container">
               <i class="fas fa-dollar-sign"></i>
-              <input id="no-reward-amount" type="number" required>
+              <input type="number" required>
             </div>
-            <button type="submit" id="no-reward-trigger">Continue</button>
+            <button type="submit">Continue</button>
           </form>
         </div>
       </div>
@@ -180,9 +180,9 @@
             <label for="bamboo-reward-amount">Enter your Pledge</label>
             <div class="donation-amount-container">
               <i class="fas fa-dollar-sign"></i>
-              <input id="bamboo-reward-amount" type="number" min="25" required>
+              <input type="number" min="25" required>
             </div>
-            <button id="bamboo-reward-trigger">Continue</button>
+            <button>Continue</button>
           </form>
         </div>
       </div>
@@ -204,9 +204,9 @@
             <label for="black-reward-amount">Enter your Pledge</label>
             <div class="donation-amount-container">
               <i class="fas fa-dollar-sign"></i>
-              <input id="black-reward-amount" type="number" min="75" required>
+              <input type="number" min="75" required>
             </div>
-            <button id="black-reward-trigger">Continue</button>
+            <button>Continue</button>
           </form>
         </div>
       </div>

@@ -31,10 +31,29 @@ bookmarkContainer.addEventListener('click', e => {
 
 
 
+const selectionBox = document.getElementById('selection-box');
+selectionBox.addEventListener('click', e => {
+  console.log(e.target.id);
+  if (e.target.id) {
+    selectionModal.classList.remove('hidden');
+  }
 
+  if (e.target.id === 'bamboo-reward-select') {
+    bambooRewardRadio.checked = true;
+    bambooRewardBox.classList.add('active');
+  }
 
+  if (e.target.id === 'black-reward-select') {
+    blackRewardRadio.checked = true;
+    blackRewardBox.classList.add('active');
+  }
+});
 
-
+document.getElementById('no-reward-select').addEventListener('click', () => {
+  selectionModal.classList.remove('hidden');
+  noRewardRadio.checked = true;
+  noRewardBox.classList.add('active');
+});
 
 
 
@@ -43,12 +62,12 @@ bookmarkContainer.addEventListener('click', e => {
 const selectionModal = document.querySelector('.selection-modal');
 const closeModal = document.getElementById('close-selection-modal');
 
-// Reward selection buttons (buttons to open modal)
-const noRewardSelect = document.getElementById('no-reward-select');
-const bambooRewardSelect = document.getElementById('bamboo-reward-select');
-const blackRewardSelect = document.getElementById('black-reward-select');
-const rewardSelectArr =
-  [noRewardSelect, bambooRewardSelect, blackRewardSelect];
+// // Reward selection buttons (buttons to open modal)
+// const noRewardSelect = document.getElementById('no-reward-select');
+// const bambooRewardSelect = document.getElementById('bamboo-reward-select');
+// const blackRewardSelect = document.getElementById('black-reward-select');
+// const rewardSelectArr =
+//   [noRewardSelect, bambooRewardSelect, blackRewardSelect];
 
 // Radio buttons corresponding to each reward type
 const noRewardRadio = document.getElementById('no-reward-selected');
@@ -75,26 +94,26 @@ function closeSelectionModal() {
 
 
 // Event listeners for reward selection buttons
-rewardSelectArr.forEach(selection => {
-  selection.addEventListener('click', () => {
-    selectionModal.classList.remove('hidden');
-
-    if (selection.id === 'no-reward-select') {
-      noRewardRadio.checked = true;
-      noRewardBox.classList.add('active');
-    }
-
-    if (selection.id === 'bamboo-reward-select') {
-      bambooRewardRadio.checked = true;
-      bambooRewardBox.classList.add('active');
-    }
-
-    if (selection.id === 'black-reward-select') {
-      blackRewardRadio.checked = true;
-      blackRewardBox.classList.add('active');
-    }
-  });
-});
+// rewardSelectArr.forEach(selection => {
+//   selection.addEventListener('click', () => {
+//     selectionModal.classList.remove('hidden');
+//
+//     if (selection.id === 'no-reward-select') {
+//       noRewardRadio.checked = true;
+//       noRewardBox.classList.add('active');
+//     }
+//
+//     if (selection.id === 'bamboo-reward-select') {
+//       bambooRewardRadio.checked = true;
+//       bambooRewardBox.classList.add('active');
+//     }
+//
+//     if (selection.id === 'black-reward-select') {
+//       blackRewardRadio.checked = true;
+//       blackRewardBox.classList.add('active');
+//     }
+//   });
+// });
 
 // Event listeners for each radio button
 radioArr.forEach((radio, index) => {
@@ -130,12 +149,6 @@ const bambooRewardForm = document.getElementById('bamboo-reward-form');
 const blackRewardForm = document.getElementById('black-reward-form');
 const rewardFormArr = [noRewardForm, bambooRewardForm, blackRewardForm];
 
-// Reward inputs
-const noRewardInput = document.getElementById('no-reward-amount');
-const bambooRewardInput = document.getElementById('bamboo-reward-amount');
-const blackRewardInput = document.getElementById('black-reward-amount');
-
-
 // Increment total amount raised by donation amount
 function handleAmountRaised(donationAmount) {
   const amountRaised = document.getElementById('amount-raised');
@@ -157,6 +170,11 @@ function handleTotalBackers() {
     totalBackersVal.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
+// Increment progress bar by amount donated
+function handleProgressBar(donationAmount) {
+
+}
+
 
 // Event listener for form submit
 rewardFormArr.forEach(reward => {
@@ -169,6 +187,7 @@ rewardFormArr.forEach(reward => {
     const donationVal = parseInt(rewardInput.value);
 
     handleAmountRaised(donationVal);
+    handleProgressBar(donationVal);
     handleTotalBackers();
 
     rewardInput.value = null;
