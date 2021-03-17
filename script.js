@@ -97,7 +97,8 @@ const donateBambooReward = document.getElementById('bamboo-reward-trigger');
 const donateBlackReward = document.getElementById('black-reward-trigger');
 
 let amountRaised = parseInt(document.getElementById('amount-raised').innerHTML.replace(',', ''));
-const totalBackers = document.getElementById('total-backers');
+
+let totalBackers = parseInt(document.getElementById('total-backers').innerHTML.replace(',', ''));
 
 
 
@@ -112,6 +113,8 @@ donateNoReward.addEventListener('click', (e) => {
   document.getElementById('amount-raised').innerHTML = amountRaised.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
   // Handle total backers
+  totalBackers += 1;
+  document.getElementById('total-backers').innerHTML = totalBackers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 });
 
 donateBambooReward.addEventListener('click', (e) => {
@@ -123,6 +126,10 @@ donateBambooReward.addEventListener('click', (e) => {
   // Handle amount amount raised
   amountRaised += donationAmount;
   document.getElementById('amount-raised').innerHTML = amountRaised.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+  // Handle total backers
+  totalBackers += 1;
+  document.getElementById('total-backers').innerHTML = totalBackers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 });
 
 donateBlackReward.addEventListener('click', (e) => {
@@ -133,4 +140,8 @@ donateBlackReward.addEventListener('click', (e) => {
   // Handle amount amount raised
   amountRaised += donationAmount;
   document.getElementById('amount-raised').innerHTML = amountRaised.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+  // Handle total backers
+  totalBackers += 1;
+  document.getElementById('total-backers').innerHTML = totalBackers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 });
