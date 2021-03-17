@@ -32,6 +32,8 @@ bookmarkContainer.addEventListener('click', e => {
 
 // Reward modal
 const rewardModal = document.querySelector('.selection-modal');
+
+const noRewardButton = document.querySelector('.no-reward-button');
 const bambooButton = document.querySelector('.bamboo-button');
 const blackButton = document.querySelector('.black-button');
 const closeModal = document.querySelector('.pledge-modal-close-btn');
@@ -47,6 +49,12 @@ const blackRewardBox = document.querySelector('.black-reward');
 
 const rewardInputArr = [bambooInput, blackInput, noRewardInput];
 const rewardBoxArr = [noRewardBox, bambooRewardBox, blackRewardBox];
+
+noRewardButton.addEventListener('click', () => {
+  rewardModal.classList.remove('hidden');
+  noRewardInput.checked = true;
+  noRewardBox.classList.add('active');
+});
 
 
 bambooButton.addEventListener('click', () => {
