@@ -138,12 +138,10 @@ const blackRewardInput = document.getElementById('black-reward-amount');
 
 // Increment total amount raised by donation amount
 function handleAmountRaised(donationAmount) {
-  const donationVal = parseInt(donationAmount);
-
   const amountRaised = document.getElementById('amount-raised');
   let amountRaisedVal = parseInt(amountRaised.innerHTML.replace(',', ''));
 
-  amountRaisedVal += donationVal;
+  amountRaisedVal += donationAmount;
   amountRaised.innerHTML =
     amountRaisedVal.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
@@ -167,22 +165,12 @@ rewardFormArr.forEach(reward => {
     closeSelectionModal();
     alert('Thanks for the donation!');
 
-    if (reward.id === 'no-reward-form') {
-      handleAmountRaised(noRewardInput.value);
-      handleTotalBackers();
-      noRewardInput.value = null;
-    }
+    const rewardInput = e.target.children[1].children[1];
+    const donationVal = parseInt(rewardInput.value);
 
-    if (reward.id === 'bamboo-reward-form') {
-      handleAmountRaised(bambooRewardInput.value);
-      handleTotalBackers();
-      bambooRewardInput.value = null;
-    }
+    handleAmountRaised(donationVal);
+    handleTotalBackers();
 
-    if (reward.id === 'black-reward-form') {
-      handleAmountRaised(blackRewardInput.value);
-      handleTotalBackers();
-      blackRewardInput.value = null;
-    }
+    rewardInput.value = null;
   });
 });
