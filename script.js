@@ -33,7 +33,13 @@ bookmarkContainer.addEventListener('click', e => {
 
 
 
-// Open/close selection modal
+
+
+
+
+
+// Open/close selection modal logic
+
 const selectionModal = document.querySelector('.selection-modal');
 const closeModal = document.getElementById('close-selection-modal');
 
@@ -57,7 +63,18 @@ const blackRewardBox = document.getElementById('black-reward-box');
 const rewardBoxArr = [noRewardBox, bambooRewardBox, blackRewardBox];
 
 
-// Event listener for reward selection buttons
+// Close selection modal
+function closeSelectionModal() {
+  selectionModal.classList.add('hidden');
+  rewardBoxArr.forEach(box => {
+    if (box.classList.contains('active')) {
+      box.classList.remove('active');
+    }
+  });
+}
+
+
+// Event listeners for reward selection buttons
 rewardSelectArr.forEach(selection => {
   selection.addEventListener('click', () => {
     selectionModal.classList.remove('hidden');
@@ -76,12 +93,10 @@ rewardSelectArr.forEach(selection => {
       blackRewardRadio.checked = true;
       blackRewardBox.classList.add('active');
     }
-
   });
 });
 
-
-// Event listener for each radio button
+// Event listeners for each radio button
 radioArr.forEach((radio, index) => {
   radio.addEventListener('change', () => {
     rewardBoxArr.forEach(box => {
@@ -94,80 +109,80 @@ radioArr.forEach((radio, index) => {
   });
 });
 
-
-// Event listener for button that closes selection modal
+// Event listener for close button
 closeModal.addEventListener('click', e => {
-  selectionModal.classList.add('hidden');
-
-  rewardBoxArr.forEach(box => {
-    if (box.classList.contains('active')) {
-      box.classList.remove('active');
-    }
-  });
+  closeSelectionModal();
 });
 
 
 
 
+//////////////////////////
 
 
 
 
+// Donation Logic
+
+// Reward forms
+const noRewardForm = document.getElementById('no-reward-form');
+const bambooRewardForm = document.getElementById('bamboo-reward-form');
+const blackRewardForm = document.getElementById('black-reward-form');
+const rewardFormArr = [noRewardForm, bambooRewardForm, blackRewardForm];
+
+// Reward inputs
+const noRewardInput = document.getElementById('no-reward-amount');
+const bambooRewardInput = document.getElementById('bamboo-reward-amount');
+const blackRewardInput = document.getElementById('black-reward-amount');
 
 
+// Increment total amount raised by donation amount
+function handleAmountRaised(donationAmount) {
+  const donationVal = parseInt(donationAmount);
+
+  const amountRaised = document.getElementById('amount-raised');
+  let amountRaisedVal = parseInt(amountRaised.innerHTML.replace(',', ''));
+
+  amountRaisedVal += donationVal;
+  amountRaised.innerHTML =
+    amountRaisedVal.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
+// Increment total backers by 1
+function handleTotalBackers() {
+  const totalBackers = document.getElementById('total-backers');
+
+  let totalBackersVal = parseInt(totalBackers.innerHTML.replace(',', ''));
+  totalBackersVal += 1;
+
+  totalBackers.innerHTML =
+    totalBackersVal.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
 
 
-// // Donation Logic
-// const donateNoReward = document.getElementById('no-reward-trigger');
-// const donateBambooReward = document.getElementById('bamboo-reward-trigger');
-// const donateBlackReward = document.getElementById('black-reward-trigger');
-//
-// let amountRaised = parseInt(document.getElementById('amount-raised').innerHTML.replace(',', ''));
-//
-// let totalBackers = parseInt(document.getElementById('total-backers').innerHTML.replace(',', ''));
-//
-//
-//
-// donateNoReward.addEventListener('click', (e) => {
-//   e.preventDefault();
-//
-//   const donationAmount = parseInt(document.getElementById('no-reward-amount').value);
-//   document.getElementById('no-reward-amount').value = null;
-//
-//   // Handle amount amount raised
-//   amountRaised += donationAmount;
-//   document.getElementById('amount-raised').innerHTML = amountRaised.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-//
-//   // Handle total backers
-//   totalBackers += 1;
-//   document.getElementById('total-backers').innerHTML = totalBackers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-// });
-//
-// donateBambooReward.addEventListener('click', (e) => {
-//   e.preventDefault();
-//
-//   const donationAmount = parseInt(document.getElementById('bamboo-reward-amount').value);
-//   document.getElementById('bamboo-reward-amount').value = null;
-//
-//   // Handle amount amount raised
-//   amountRaised += donationAmount;
-//   document.getElementById('amount-raised').innerHTML = amountRaised.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-//
-//   // Handle total backers
-//   totalBackers += 1;
-//   document.getElementById('total-backers').innerHTML = totalBackers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-// });
-//
-// donateBlackReward.addEventListener('click', (e) => {
-//   e.preventDefault();
-//   const donationAmount = parseInt(document.getElementById('black-reward-amount').value);
-//   document.getElementById('black-reward-amount').value = null;
-//
-//   // Handle amount amount raised
-//   amountRaised += donationAmount;
-//   document.getElementById('amount-raised').innerHTML = amountRaised.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-//
-//   // Handle total backers
-//   totalBackers += 1;
-//   document.getElementById('total-backers').innerHTML = totalBackers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-// });
+// Event listener for form submit
+rewardFormArr.forEach(reward => {
+  reward.addEventListener('submit', e => {
+    e.preventDefault();
+    closeSelectionModal();
+    alert('Thanks for the donation!');
+
+    if (reward.id === 'no-reward-form') {
+      handleAmountRaised(noRewardInput.value);
+      handleTotalBackers();
+      noRewardInput.value = null;
+    }
+
+    if (reward.id === 'bamboo-reward-form') {
+      handleAmountRaised(bambooRewardInput.value);
+      handleTotalBackers();
+      bambooRewardInput.value = null;
+    }
+
+    if (reward.id === 'black-reward-form') {
+      handleAmountRaised(blackRewardInput.value);
+      handleTotalBackers();
+      blackRewardInput.value = null;
+    }
+  });
+});
