@@ -146,7 +146,6 @@ function handleTotalBackers() {
 function handleProgressBar(amountRaised) {
   const donationBarProgress = document.getElementById('donation-progress');
   const newPercentage = String((amountRaised / 100000) * 100);
-  console.log(newPercentage);
   donationBarProgress.style.width = `${newPercentage}%`;
 }
 
@@ -160,6 +159,12 @@ function handleAmountRaised(donationAmount) {
     amountRaisedVal.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
   handleProgressBar(amountRaisedVal);
+}
+
+function handleStandsRemaining(standType) {
+  const initialAmount = parseInt(standType.innerHTML);
+  const newAmount = initialAmount - 1;
+  standType.innerHTML = newAmount;
 }
 
 
@@ -176,6 +181,18 @@ rewardFormArr.forEach(reward => {
     handleTotalBackers();
     handleAmountRaised(donationVal);
 
+    // Decriment amount remaining
+    const bambooRemaining = document.getElementById('bamboo-remaining');
+    const blackRemaining = document.getElementById('black-remaining');
+
+    if (e.target.id === 'bamboo-reward-form') {
+      handleStandsRemaining(bambooRemaining);
+    }
+
+    if (e.target.id === 'black-reward-form') {
+      handleStandsRemaining(blackRemaining);
+    }
+
     rewardInput.value = null;
   });
 });
@@ -184,9 +201,3 @@ rewardFormArr.forEach(reward => {
 
 
 // ------------------------------------------------------------------------
-
-// const bambooRemaining = document.getElementById('bamboo-remaining');
-// const bambooRemainingModal = document.getElementById('bamboo-remaining-modal');
-//
-// console.log(bambooRemaining.innerHTML);
-// console.log(bambooRemainingModal);
