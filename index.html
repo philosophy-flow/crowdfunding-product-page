@@ -51,7 +51,7 @@
         </p>
       </div>
       <div class="title-button-container">
-        <button class="title-button no-reward-button">Back this project</button>
+        <button id="no-reward-select" class="title-button">Back this project</button>
         <div class="bookmark-container">
           <button class="bookmark-button">Bookmark</button>
           <svg class="bookmark-icon" width="56" height="56" xmlns="http://www.w3.org/2000/svg">
@@ -102,7 +102,7 @@
           </p>
           <div class="pledge-bottom">
             <h2 class="bamboo-remaining">101 <span class="left-text">left</span></h2>
-            <button class="reward-button bamboo-button">Select Reward</button>
+            <button id="bamboo-reward-select" class="reward-button">Select Reward</button>
           </div>
         </div>
         <div class="pledge black-stand">
@@ -112,7 +112,7 @@
           </p>
           <div class="pledge-bottom">
             <h2 class="black-remaining">64 <span class="left-text">left</span></h2>
-            <button class="reward-button black-button">Select Reward</button>
+            <button id="black-reward-select" class="reward-button">Select Reward</button>
           </div>
         </div>
         <div class="pledge mahogany-special sold-out">
@@ -122,7 +122,7 @@
           </p>
           <div class="pledge-bottom">
             <h2 class="mahogany-remaining">0 <span class="left-text">left</span></h2>
-            <button class="reward-button mahogany-button sold-out">Out of stock</button>
+            <button class="reward-button sold-out">Out of stock</button>
           </div>
         </div>
       </div>
@@ -135,11 +135,11 @@
 
   <div class="selection-modal hidden">
     <div class="selection-form">
-      <button class="pledge-modal-close-btn"><i class="fas fa-times fa-2x"></i></button>
+      <button id="close-selection-modal" class="pledge-modal-close-btn"><i class="fas fa-times fa-2x"></i></button>
       <h2>Back this project</h2>
       <p class="selection-sub-text">Want to support us in bringing Mastercraft Bamboo Monitor Riser out in the world?</p>
 
-      <div class="reward-box no-reward">
+      <div id="no-reward-box" class="reward-box no-reward">
         <label class="radio">
           <span class="radio__input">
             <input id="no-reward-selected" type="radio" name="reward-type" value="no-reward">
@@ -163,7 +163,7 @@
         </div>
       </div>
 
-      <div class="reward-box bamboo-reward">
+      <div id="bamboo-reward-box" class="reward-box bamboo-reward">
         <label class="radio">
           <span class="radio__input">
             <input id="bamboo-selected" type="radio" name="reward-type" value="bamboo-reward">
@@ -187,7 +187,7 @@
         </div>
       </div>
 
-      <div class="reward-box black-reward">
+      <div id="black-reward-box" class="reward-box black-reward">
         <label class="radio">
           <span class="radio__input">
             <input id="black-selected" type="radio" name="reward-type" value="black-reward">

@@ -30,48 +30,58 @@ bookmarkContainer.addEventListener('click', e => {
 });
 
 
-// Reward modal
-const rewardModal = document.querySelector('.selection-modal');
-
-const noRewardButton = document.querySelector('.no-reward-button');
-const bambooButton = document.querySelector('.bamboo-button');
-const blackButton = document.querySelector('.black-button');
-const closeModal = document.querySelector('.pledge-modal-close-btn');
-
-const noRewardInput = document.getElementById('no-reward-selected');
-const bambooInput = document.getElementById('bamboo-selected');
-const blackInput = document.getElementById('black-selected');
-
-const noRewardBox = document.querySelector('.no-reward');
-const bambooRewardBox = document.querySelector('.bamboo-reward');
-const blackRewardBox = document.querySelector('.black-reward');
 
 
-const rewardInputArr = [bambooInput, blackInput, noRewardInput];
+// Open/close selection modal
+const selectionModal = document.querySelector('.selection-modal');
+const closeModal = document.getElementById('close-selection-modal');
+
+// Buttons to open modal
+const noRewardSelect = document.getElementById('no-reward-select');
+const bambooRewardSelect = document.getElementById('bamboo-reward-select');
+const blackRewardSelect = document.getElementById('black-reward-select');
+const rewardSelectArr = [noRewardSelect, bambooRewardSelect, blackRewardSelect];
+
+// Radio buttons corresponding to each reward type
+const noRewardRadio = document.getElementById('no-reward-selected');
+const bambooRewardRadio = document.getElementById('bamboo-selected');
+const blackRewardRadio = document.getElementById('black-selected');
+const radioArr = [noRewardRadio, bambooRewardRadio, blackRewardRadio];
+
+// Boxes corresponding to each reward type
+const noRewardBox = document.getElementById('no-reward-box');
+const bambooRewardBox = document.getElementById('bamboo-reward-box');
+const blackRewardBox = document.getElementById('black-reward-box');
 const rewardBoxArr = [noRewardBox, bambooRewardBox, blackRewardBox];
 
-noRewardButton.addEventListener('click', () => {
-  rewardModal.classList.remove('hidden');
-  noRewardInput.checked = true;
-  noRewardBox.classList.add('active');
+
+// Event listener for reward selection buttons
+rewardSelectArr.forEach(selection => {
+  selection.addEventListener('click', () => {
+    selectionModal.classList.remove('hidden');
+
+    if (selection.id === 'no-reward-select') {
+      noRewardRadio.checked = true;
+      noRewardBox.classList.add('active');
+    }
+
+    if (selection.id === 'bamboo-reward-select') {
+      bambooRewardRadio.checked = true;
+      bambooRewardBox.classList.add('active');
+    }
+
+    if (selection.id === 'black-reward-select') {
+      blackRewardRadio.checked = true;
+      blackRewardBox.classList.add('active');
+    }
+
+  });
 });
 
-
-bambooButton.addEventListener('click', () => {
-  rewardModal.classList.remove('hidden');
-  bambooInput.checked = true;
-  bambooRewardBox.classList.add('active');
-});
-
-blackButton.addEventListener('click', () => {
-  rewardModal.classList.remove('hidden');
-  blackInput.checked = true;
-  blackRewardBox.classList.add('active');
-});
-
+// Event listener for button that closes selection modal
 closeModal.addEventListener('click', e => {
-  e.preventDefault();
-  rewardModal.classList.add('hidden');
+  selectionModal.classList.add('hidden');
+
   rewardBoxArr.forEach(box => {
     if (box.classList.contains('active')) {
       box.classList.remove('active');
@@ -79,69 +89,159 @@ closeModal.addEventListener('click', e => {
   });
 });
 
-rewardInputArr.forEach(input => {
-  input.addEventListener('change', () => {
+// Event listener for each radio button
+// When new radio selected, previous active box is removed
+// New active box applied using index
+radioArr.forEach((radio, index) => {
+  radio.addEventListener('change', () => {
     rewardBoxArr.forEach(box => {
       if (box.classList.contains('active')) {
         box.classList.remove('active');
       }
     });
-    const newActiveBox = input.parentElement.parentElement.parentElement;
+    const newActiveBox = rewardBoxArr[index];
     newActiveBox.classList.add('active');
   });
 });
 
-// Donation Logic
-const donateNoReward = document.getElementById('no-reward-trigger');
-const donateBambooReward = document.getElementById('bamboo-reward-trigger');
-const donateBlackReward = document.getElementById('black-reward-trigger');
-
-let amountRaised = parseInt(document.getElementById('amount-raised').innerHTML.replace(',', ''));
-
-let totalBackers = parseInt(document.getElementById('total-backers').innerHTML.replace(',', ''));
 
 
 
-donateNoReward.addEventListener('click', (e) => {
-  e.preventDefault();
 
-  const donationAmount = parseInt(document.getElementById('no-reward-amount').value);
-  document.getElementById('no-reward-amount').value = null;
 
-  // Handle amount amount raised
-  amountRaised += donationAmount;
-  document.getElementById('amount-raised').innerHTML = amountRaised.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+// // Reward modal
+// const rewardModal = document.querySelector('.selection-modal');
+//
+// const noRewardButton = document.querySelector('.no-reward-button');
+// const bambooButton = document.querySelector('.bamboo-button');
+// const blackButton = document.querySelector('.black-button');
+// const closeModal = document.querySelector('.pledge-modal-close-btn');
+//
+// const noRewardInput = document.getElementById('no-reward-selected');
+// const bambooInput = document.getElementById('bamboo-selected');
+// const blackInput = document.getElementById('black-selected');
+//
+// const noRewardBox = document.querySelector('.no-reward');
+// const bambooRewardBox = document.querySelector('.bamboo-reward');
+// const blackRewardBox = document.querySelector('.black-reward');
+//
+//
+// const rewardInputArr = [bambooInput, blackInput, noRewardInput];
+// const rewardBoxArr = [noRewardBox, bambooRewardBox, blackRewardBox];
+//
+// noRewardButton.addEventListener('click', () => {
+//   rewardModal.classList.remove('hidden');
+//   noRewardInput.checked = true;
+//   noRewardBox.classList.add('active');
+// });
+//
+//
+// bambooButton.addEventListener('click', () => {
+//   rewardModal.classList.remove('hidden');
+//   bambooInput.checked = true;
+//   bambooRewardBox.classList.add('active');
+// });
+//
+// blackButton.addEventListener('click', () => {
+//   rewardModal.classList.remove('hidden');
+//   blackInput.checked = true;
+//   blackRewardBox.classList.add('active');
+// });
+//
+// closeModal.addEventListener('click', e => {
+//   e.preventDefault();
+//   rewardModal.classList.add('hidden');
+//   rewardBoxArr.forEach(box => {
+//     if (box.classList.contains('active')) {
+//       box.classList.remove('active');
+//     }
+//   });
+// });
+//
+// rewardInputArr.forEach(input => {
+//   input.addEventListener('change', () => {
+//     rewardBoxArr.forEach(box => {
+//       if (box.classList.contains('active')) {
+//         box.classList.remove('active');
+//       }
+//     });
+//     const newActiveBox = input.parentElement.parentElement.parentElement;
+//     newActiveBox.classList.add('active');
+//   });
+// });
+//
 
-  // Handle total backers
-  totalBackers += 1;
-  document.getElementById('total-backers').innerHTML = totalBackers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-});
 
-donateBambooReward.addEventListener('click', (e) => {
-  e.preventDefault();
 
-  const donationAmount = parseInt(document.getElementById('bamboo-reward-amount').value);
-  document.getElementById('bamboo-reward-amount').value = null;
 
-  // Handle amount amount raised
-  amountRaised += donationAmount;
-  document.getElementById('amount-raised').innerHTML = amountRaised.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
-  // Handle total backers
-  totalBackers += 1;
-  document.getElementById('total-backers').innerHTML = totalBackers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-});
 
-donateBlackReward.addEventListener('click', (e) => {
-  e.preventDefault();
-  const donationAmount = parseInt(document.getElementById('black-reward-amount').value);
-  document.getElementById('black-reward-amount').value = null;
 
-  // Handle amount amount raised
-  amountRaised += donationAmount;
-  document.getElementById('amount-raised').innerHTML = amountRaised.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
-  // Handle total backers
-  totalBackers += 1;
-  document.getElementById('total-backers').innerHTML = totalBackers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-});
+
+
+
+
+
+
+
+
+
+
+
+
+
+// // Donation Logic
+// const donateNoReward = document.getElementById('no-reward-trigger');
+// const donateBambooReward = document.getElementById('bamboo-reward-trigger');
+// const donateBlackReward = document.getElementById('black-reward-trigger');
+//
+// let amountRaised = parseInt(document.getElementById('amount-raised').innerHTML.replace(',', ''));
+//
+// let totalBackers = parseInt(document.getElementById('total-backers').innerHTML.replace(',', ''));
+//
+//
+//
+// donateNoReward.addEventListener('click', (e) => {
+//   e.preventDefault();
+//
+//   const donationAmount = parseInt(document.getElementById('no-reward-amount').value);
+//   document.getElementById('no-reward-amount').value = null;
+//
+//   // Handle amount amount raised
+//   amountRaised += donationAmount;
+//   document.getElementById('amount-raised').innerHTML = amountRaised.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+//
+//   // Handle total backers
+//   totalBackers += 1;
+//   document.getElementById('total-backers').innerHTML = totalBackers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+// });
+//
+// donateBambooReward.addEventListener('click', (e) => {
+//   e.preventDefault();
+//
+//   const donationAmount = parseInt(document.getElementById('bamboo-reward-amount').value);
+//   document.getElementById('bamboo-reward-amount').value = null;
+//
+//   // Handle amount amount raised
+//   amountRaised += donationAmount;
+//   document.getElementById('amount-raised').innerHTML = amountRaised.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+//
+//   // Handle total backers
+//   totalBackers += 1;
+//   document.getElementById('total-backers').innerHTML = totalBackers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+// });
+//
+// donateBlackReward.addEventListener('click', (e) => {
+//   e.preventDefault();
+//   const donationAmount = parseInt(document.getElementById('black-reward-amount').value);
+//   document.getElementById('black-reward-amount').value = null;
+//
+//   // Handle amount amount raised
+//   amountRaised += donationAmount;
+//   document.getElementById('amount-raised').innerHTML = amountRaised.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+//
+//   // Handle total backers
+//   totalBackers += 1;
+//   document.getElementById('total-backers').innerHTML = totalBackers.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+// });
