@@ -31,43 +31,64 @@ bookmarkContainer.addEventListener('click', e => {
 
 
 
+
+// ------------------------------------------------------------------------
+
+
+
+
+// Open & close selection modal logic
+
+const selectionModal = document.querySelector('.selection-modal');
+const closeModalButton = document.getElementById('close-selection-modal');
+
+// Close selection modal function
+function closeSelectionModal() {
+  selectionModal.classList.add('hidden');
+  rewardBoxArr.forEach(box => {
+    if (box.classList.contains('active')) {
+      box.classList.remove('active');
+    }
+  });
+}
+
+// Event listener for bamboo or black reward selection
 const selectionBox = document.getElementById('selection-box');
 selectionBox.addEventListener('click', e => {
-  console.log(e.target.id);
-  if (e.target.id) {
-    selectionModal.classList.remove('hidden');
-  }
-
   if (e.target.id === 'bamboo-reward-select') {
+    selectionModal.classList.remove('hidden');
     bambooRewardRadio.checked = true;
     bambooRewardBox.classList.add('active');
   }
 
   if (e.target.id === 'black-reward-select') {
+    selectionModal.classList.remove('hidden');
     blackRewardRadio.checked = true;
     blackRewardBox.classList.add('active');
   }
 });
 
+// Event listener for no reward selection
 document.getElementById('no-reward-select').addEventListener('click', () => {
   selectionModal.classList.remove('hidden');
   noRewardRadio.checked = true;
   noRewardBox.classList.add('active');
 });
 
+// Event listener for close button
+closeModalButton.addEventListener('click', e => {
+  closeSelectionModal();
+});
 
 
-// Open/close selection modal logic
 
-const selectionModal = document.querySelector('.selection-modal');
-const closeModal = document.getElementById('close-selection-modal');
 
-// // Reward selection buttons (buttons to open modal)
-// const noRewardSelect = document.getElementById('no-reward-select');
-// const bambooRewardSelect = document.getElementById('bamboo-reward-select');
-// const blackRewardSelect = document.getElementById('black-reward-select');
-// const rewardSelectArr =
-//   [noRewardSelect, bambooRewardSelect, blackRewardSelect];
+// ------------------------------------------------------------------------
+
+
+
+
+// Change active selection logic
 
 // Radio buttons corresponding to each reward type
 const noRewardRadio = document.getElementById('no-reward-selected');
@@ -81,41 +102,7 @@ const bambooRewardBox = document.getElementById('bamboo-reward-box');
 const blackRewardBox = document.getElementById('black-reward-box');
 const rewardBoxArr = [noRewardBox, bambooRewardBox, blackRewardBox];
 
-
-// Close selection modal
-function closeSelectionModal() {
-  selectionModal.classList.add('hidden');
-  rewardBoxArr.forEach(box => {
-    if (box.classList.contains('active')) {
-      box.classList.remove('active');
-    }
-  });
-}
-
-
-// Event listeners for reward selection buttons
-// rewardSelectArr.forEach(selection => {
-//   selection.addEventListener('click', () => {
-//     selectionModal.classList.remove('hidden');
-//
-//     if (selection.id === 'no-reward-select') {
-//       noRewardRadio.checked = true;
-//       noRewardBox.classList.add('active');
-//     }
-//
-//     if (selection.id === 'bamboo-reward-select') {
-//       bambooRewardRadio.checked = true;
-//       bambooRewardBox.classList.add('active');
-//     }
-//
-//     if (selection.id === 'black-reward-select') {
-//       blackRewardRadio.checked = true;
-//       blackRewardBox.classList.add('active');
-//     }
-//   });
-// });
-
-// Event listeners for each radio button
+// Event listeners for each radio button (changes active selection)
 radioArr.forEach((radio, index) => {
   radio.addEventListener('change', () => {
     rewardBoxArr.forEach(box => {
@@ -128,15 +115,10 @@ radioArr.forEach((radio, index) => {
   });
 });
 
-// Event listener for close button
-closeModal.addEventListener('click', e => {
-  closeSelectionModal();
-});
 
 
 
-
-//////////////////////////
+////////////////////////////////
 
 
 
@@ -171,12 +153,10 @@ function handleTotalBackers() {
 }
 
 // Increment progress bar by amount donated
-function handleProgressBar(donationAmount) {
-
-}
+function handleProgressBar(donationAmount) {}
 
 
-// Event listener for form submit
+// Event listeners for form submit
 rewardFormArr.forEach(reward => {
   reward.addEventListener('submit', e => {
     e.preventDefault();
