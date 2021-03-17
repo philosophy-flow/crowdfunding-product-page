@@ -131,16 +131,6 @@ const bambooRewardForm = document.getElementById('bamboo-reward-form');
 const blackRewardForm = document.getElementById('black-reward-form');
 const rewardFormArr = [noRewardForm, bambooRewardForm, blackRewardForm];
 
-// Increment total amount raised by donation amount
-function handleAmountRaised(donationAmount) {
-  const amountRaised = document.getElementById('amount-raised');
-  let amountRaisedVal = parseInt(amountRaised.innerHTML.replace(',', ''));
-
-  amountRaisedVal += donationAmount;
-  amountRaised.innerHTML =
-    amountRaisedVal.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-}
-
 // Increment total backers by 1
 function handleTotalBackers() {
   const totalBackers = document.getElementById('total-backers');
@@ -153,7 +143,24 @@ function handleTotalBackers() {
 }
 
 // Increment progress bar by amount donated
-function handleProgressBar(donationAmount) {}
+function handleProgressBar(amountRaised) {
+  const donationBarProgress = document.getElementById('donation-progress');
+  const newPercentage = String((amountRaised / 100000) * 100);
+  console.log(newPercentage);
+  donationBarProgress.style.width = `${newPercentage}%`;
+}
+
+// Increment total amount raised by donation amount + update progress bar
+function handleAmountRaised(donationAmount) {
+  const amountRaised = document.getElementById('amount-raised');
+  let amountRaisedVal = parseInt(amountRaised.innerHTML.replace(',', ''));
+
+  amountRaisedVal += donationAmount;
+  amountRaised.innerHTML =
+    amountRaisedVal.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+  handleProgressBar(amountRaisedVal);
+}
 
 
 // Event listeners for form submit
@@ -166,10 +173,14 @@ rewardFormArr.forEach(reward => {
     const rewardInput = e.target.children[1].children[1];
     const donationVal = parseInt(rewardInput.value);
 
-    handleAmountRaised(donationVal);
-    handleProgressBar(donationVal);
     handleTotalBackers();
+    handleAmountRaised(donationVal);
 
     rewardInput.value = null;
   });
 });
+
+
+
+
+// ------------------------------------------------------------------------
